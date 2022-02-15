@@ -12,30 +12,30 @@
           th:method="post"
           th:object="${patient}">
         <label>Family
-            <input th:field="*{family}" type="text"/><br/>
+            <input th:field="*{family}" type="text" required/><br/>
         </label><br/>
 
         <label>Given
-            <input th:field="*{given}" type="text"/><br/>
+            <input th:field="*{given}" type="text" required/><br/>
         </label><br/>
 
         <label>Date of Birth
-            <input th:field="*{dob}" type="date"/><br/>
+            <input th:field="*{dob}" type="date" required/><br/>
         </label><br/>
 
         <label>Sex
-            <input th:field="*{sex}" type="text"/><br/>
+            <input th:field="*{sex}" type="text" required/><br/>
         </label><br/>
 
         <label>Address
-            <input th:field="*{address}" type="text"/><br/>
+            <input th:field="*{address}" type="text" required/><br/>
         </label><br/>
 
         <label>Phone
-            <input th:field="*{phone}" type="text"/><br/>
+            <input th:field="*{phone}" type="text" required/><br/>
         </label><br/>
 
-        <input type="submit" value="Add Patient"/></input>
+        <input type="submit" value="Add Patient" required/></input>
     </form>
 </div>
 

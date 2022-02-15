@@ -34,7 +34,6 @@ public class PatientClientController {
 	public String getPatient(@RequestParam("id") UUID id, Model model) {
 		model.addAttribute("patientInfos", patientProxy.getPatient(id).get());
 		return "patient/infos";
-
 	}
 
 	@GetMapping("/add")
@@ -56,6 +55,13 @@ public class PatientClientController {
 		patientProxy.deletePatient(id);
 		model.addAttribute("patientsList", patientProxy.getPatients());
 		return "patient/list";
+	}
+
+	@GetMapping("/update")
+	public String updatePatient(@RequestParam("id") UUID id,
+			@ModelAttribute Patient patient, Model model) {
+		model.addAttribute("patientInfos", patientProxy.getPatient(id).get());
+		return "patient/update";
 	}
 
 }
