@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Patient Info</title>
+</head>
+<body>
+
+<h1>Patient Infos</h1>
+
+<table>
+    <thead>
+    </thead>
+    <tr>
+        <td>Family</td>
+        <td th:text="${patientInfos.family}"></td>
+    </tr>
+    <tr>
+        <td>Given</td>
+        <td th:text="${patientInfos.given}"></td>
+    </tr>
+    <tr>
+        <td>Date of Birth</td>
+        <td th:text="${patientInfos.dob}"></td>
+    </tr>
+    <tr>
+        <td>Sex</td>
+        <td th:text="${patientInfos.sex}"></td>
+    </tr>
+    <tr>
+        <td>Address</td>
+        <td th:text="${patientInfos.address}"></td>
+    </tr>
+    <tr>
+        <td>Phone</td>
+        <td th:text="${patientInfos.phone}"></td>
+    </tr>
+</table>
+
+<a th:href="@{/patient/delete(id=${patientInfos.id})}" type="button" class="btn btn-danger" >Delete Patient</a>
+
+<p>
+    <a style="font-weight: bold;" th:href="@{/patient/list}"> Back to patients list</a>
+</p>
+
+</body>
+</html>

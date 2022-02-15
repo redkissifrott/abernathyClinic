@@ -2,12 +2,11 @@ CREATE DATABASE IF NOT EXISTS abernathy_patient;
  USE abernathy_patient;
 
 CREATE TABLE IF NOT EXISTS patient (
-  id INT AUTO_INCREMENT NOT NULL,
+  id VARCHAR(80) PRIMARY KEY,
   family VARCHAR(30) NOT NULL,
   given VARCHAR(30) NOT NULL,
   dob DATE NOT NULL,
   sex VARCHAR (1) NOT NULL,
   address VARCHAR(50) NOT NULL,
-  phone VARCHAR(12) NOT NULL,
-  PRIMARY KEY (id)
+  phone VARCHAR(12) NOT NULL
 );

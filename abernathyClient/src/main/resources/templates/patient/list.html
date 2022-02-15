@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>List</title>
+</head>
+<body>
+<h1>Patients List</h1>
+
+<p th:if="${#lists.isEmpty(patientsList)}">
+    No patient yet in database
+</p>
+
+<div th:unless="${#lists.isEmpty(patientsList)}">
+     <table>
+        <thead>
+        <th>Family</th>
+        <th>Given</th>
+        </thead>
+        <tr th:each="patient : ${patientsList}">
+            <td th:text="${patient.family}"></td>
+            <td th:text="${patient.given}"></td>
+            <td>
+                <a th:href="@{/patient/infos(id=${patient.id})}">Patient Infos</a>
+            </td> 
+        </tr>
+    </table>
+</div>
+
+<p>
+    <a style="font-weight: bold;" th:href="@{/patient/add}" }> Add Patient</a>
+</p>
+
+</body>
+</html>
