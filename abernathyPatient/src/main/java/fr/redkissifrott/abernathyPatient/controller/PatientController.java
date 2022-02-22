@@ -23,6 +23,12 @@ public class PatientController {
 	@Autowired
 	PatientService patientService;
 
+	/**
+	 * Create - add a patient to DB
+	 * 
+	 * @param the patient to add
+	 * @return the patient
+	 */
 	@PostMapping("/add")
 	public Patient addPatient(@RequestBody Patient patient) {
 		patientService.savePatient(patient);

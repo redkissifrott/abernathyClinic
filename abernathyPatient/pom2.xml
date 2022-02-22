@@ -10,14 +10,35 @@
 	</parent>
 	<groupId>fr.redkissifrott</groupId>
 	<artifactId>abernathyPatient</artifactId>
+	<packaging>pom</packaging>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>abernathyPatient</name>
-	<description>gpsutil</description>
+	<description>Gestion of patient's informations</description>
+	
 	<properties>
+	    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<java.version>11</java.version>
+		<maven.compiler.target>${java.version}</maven.compiler.target>
+        <maven.compiler.source>${java.version}</maven.compiler.source>
+        
+        <!-- Maven plugins versions -->
+        <maven-clean-plugin.version>3.1.0</maven-clean-plugin.version>
+        <maven-resources-plugin.version>3.0.2</maven-resources-plugin.version>
+        <maven-compiler-plugin.version>3.8.0</maven-compiler-plugin.version>
+        <maven-surefire-plugin.version>2.22.1</maven-surefire-plugin.version>
+        <maven-jar-plugin.version>3.0.2</maven-jar-plugin.version>
+        <maven-install-plugin.version>2.5.2</maven-install-plugin.version>
+        <maven-deploy-plugin.version>2.8.2</maven-deploy-plugin.version>
+        <maven-site-plugin.version>3.7.1</maven-site-plugin.version>
+        <maven-project-info-reports-plugin.version>3.0.0</maven-project-info-reports-plugin.version>
+        
 		<spring-cloud.version>2021.0.0</spring-cloud.version>
 	</properties>
+	
 	<dependencies>
+	
+		<!-- Spring Boot-->
+		
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-actuator</artifactId>
@@ -38,7 +59,6 @@
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-openfeign</artifactId>
 		</dependency>
-
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-devtools</artifactId>
@@ -71,17 +91,38 @@
 		</dependency>
 		
 		<dependency>
-      		<groupId>org.springdoc</groupId>
-      		<artifactId>springdoc-openapi-ui</artifactId>
-      		<version>1.6.6</version>
-   		</dependency>
-   		<dependency>
-     		<groupId>org.springdoc</groupId>
-     		<artifactId>springdoc-openapi-webmvc-core</artifactId>
-      		<version>1.6.6</version>
-   		</dependency>
+            <groupId>org.json</groupId>
+            <artifactId>json</artifactId>
+            <version>20210307</version>
+        </dependency>
 		
+		<dependency>
+   			<groupId>org.springdoc</groupId>
+    		<artifactId>springdoc-openapi-ui</artifactId>
+    		<version>1.6.4</version>
+		</dependency>
+        <dependency>
+            <groupId>io.swagger.core.v3</groupId>
+            <artifactId>swagger-annotations</artifactId>
+            <version>2.1.9</version>
+        </dependency>
+        
+        <dependency>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-surefire-plugin</artifactId>
+            <version>3.0.0-M5</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.jacoco</groupId>
+            <artifactId>jacoco-maven-plugin</artifactId>
+            <version>0.8.7</version>
+            <scope>test</scope>
+        </dependency>
+        
 	</dependencies>
+	
 	<dependencyManagement>
 		<dependencies>
 			<dependency>
@@ -93,23 +134,15 @@
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
-
+	
 	<build>
 		<plugins>
+		    <plugin>
+       			<groupId>org.apache.maven.plugins</groupId>
+       			<artifactId>maven-site-plugin</artifactId>
+       			<version>3.9.1</version>
+            </plugin>
 			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
-				<configuration>
-					<excludes>
-						<exclude>
-							<groupId>org.projectlombok</groupId>
-							<artifactId>lombok</artifactId>
-						</exclude>
-					</excludes>
-				</configuration>
-			</plugin>
-				<plugin>
-                <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
                 <dependencies>
                     <dependency>
@@ -118,13 +151,8 @@
                         <version>1.2.0</version>
                     </dependency>
                 </dependencies>
-                <configuration>
-                    <excludes>
-                        <exclude>**/*IT.java</exclude>
-                    </excludes>
-                </configuration>
                 <executions>
-                    <execution>
+                <execution>
                         <id>integration-test</id>
                         <goals>
                             <goal>test</goal>
@@ -141,10 +169,15 @@
                     </execution>
                 </executions>
             </plugin>
-       		<plugin>
+            <plugin>
                 <groupId>org.jacoco</groupId>
                 <artifactId>jacoco-maven-plugin</artifactId>
-                <version>0.8.5</version>
+                <version>0.8.7</version>
+                <configuration>
+                    <excludes>
+                        <exclude>**/*config*/**</exclude>
+                    </excludes>
+                </configuration>
                 <executions>
                     <execution>
                         <goals>
@@ -159,11 +192,6 @@
                         </goals>
                     </execution>
                 </executions>
-            </plugin>
-            <plugin>
-       			<groupId>org.apache.maven.plugins</groupId>
-       			<artifactId>maven-site-plugin</artifactId>
-       			<version>3.9.1</version>
             </plugin>
 		</plugins>
 	</build>
@@ -190,5 +218,6 @@
 			</plugin>
     	</plugins>
     </reporting>
+	
 
 </project>
