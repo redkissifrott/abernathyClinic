@@ -28,6 +28,10 @@ public class PatientService {
 		return patientRepository.findById(id);
 	}
 
+	public Optional<Patient> getPatientByFamilyAndGiven(String family, String given) {
+		return patientRepository.findByFamilyAndGiven(family, given);
+	}
+
 	@Transactional
 	public void deletePatient(UUID id) {
 		patientRepository.deleteById(id);

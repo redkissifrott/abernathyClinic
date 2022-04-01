@@ -13,4 +13,6 @@ public interface PatientRepository extends JpaRepository<Patient, Integer> {
 
 	void deleteById(UUID id);
 
+	Optional<Patient> findByFamilyAndGiven(String family, String given);
+
 }
