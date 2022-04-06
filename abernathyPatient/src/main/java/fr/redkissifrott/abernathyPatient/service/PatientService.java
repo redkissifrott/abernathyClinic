@@ -1,7 +1,6 @@
 package fr.redkissifrott.abernathyPatient.service;
 
 import java.util.Optional;
-import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -24,7 +23,7 @@ public class PatientService {
 		return patientRepository.findAll();
 	}
 
-	public Optional<Patient> getPatient(UUID id) {
+	public Optional<Patient> getPatient(Integer id) {
 		return patientRepository.findById(id);
 	}
 
@@ -33,7 +32,7 @@ public class PatientService {
 	}
 
 	@Transactional
-	public void deletePatient(UUID id) {
+	public void deletePatient(Integer id) {
 		patientRepository.deleteById(id);
 
 	}

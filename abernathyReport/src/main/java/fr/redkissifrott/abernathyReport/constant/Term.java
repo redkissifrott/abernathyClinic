@@ -1,0 +1,6 @@
+package fr.redkissifrott.abernathyReport.constant;
+
+public enum Term {
+	HEMOGLOBIN_A1C, MICROALBUMIN, HEIGHT, WEIGHT, SMOKER, ABNORMAL, CHOLESTEROL, RELAPSE, DIZZINESS, REACTION,
+	ANTIBODIES
+}

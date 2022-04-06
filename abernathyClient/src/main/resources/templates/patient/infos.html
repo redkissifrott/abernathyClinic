@@ -38,6 +38,29 @@
     </tr>
 </table>
 
+<p th:if="${#lists.isEmpty(patientNotes)}">
+    No note yet for this patient
+</p>
+
+<!-- <div th:unless="${#lists.isEmpty(patientNotes)}"> -->
+<!--      <table> -->
+<!--         <tr th:each="note : ${patientNotes}"> -->
+<!--             <td th:text="${note.recommendations}"></td> -->
+<!--         </tr> -->
+<!--      </table> -->
+<!-- </div>  -->
+
+<div th:each="note : ${patientNotes}">
+<pre th:text="${note.recommendations}"></pre>
+</div>
+        
+<textarea rows="8" cols="120" name="recommendation" form="noteform">
+</textarea>   
+<form method="POST" type="text" th:action="@{/patient/addNote(id=${patientInfos.id})}" id="noteform">
+ <button type="submit" name="action" value="submitnote">Submit</button>
+</form>
+    
+
 <a th:href="@{/patient/delete(id=${patientInfos.id})}" type="button" class="btn btn-danger" >Delete Patient</a>
 
 <p>

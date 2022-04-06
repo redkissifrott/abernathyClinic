@@ -1,7 +1,6 @@
 package fr.redkissifrott.abernathyPatient.controller;
 
 import java.util.Optional;
-import java.util.UUID;
 
 import javax.validation.Valid;
 
@@ -27,7 +26,7 @@ public class PatientController {
 	PatientService patientService;
 
 	/**
-	 * Create - add a patient to DB
+	 * Create - add a patient in DB
 	 * 
 	 * @param the patient to add
 	 * @return the patient
@@ -45,7 +44,7 @@ public class PatientController {
 	/**
 	 * Read - get all patients in list
 	 * 
-	 * @return iterable patients
+	 * @return list of patients
 	 */
 	@GetMapping(value = "/list")
 	public Iterable<Patient> getPatients() {
@@ -59,7 +58,7 @@ public class PatientController {
 	 * @return patient
 	 */
 	@GetMapping(value = "/{id}")
-	public Optional<Patient> getPatient(@PathVariable("id") UUID id) {
+	public Optional<Patient> getPatient(@PathVariable("id") Integer id) {
 		return patientService.getPatient(id);
 	}
 
@@ -69,7 +68,7 @@ public class PatientController {
 	 * @param patient id
 	 */
 	@GetMapping(value = "/delete/{id}")
-	public void deletePatient(@PathVariable("id") UUID id) {
+	public void deletePatient(@PathVariable("id") Integer id) {
 		patientService.deletePatient(id);
 	}
 }

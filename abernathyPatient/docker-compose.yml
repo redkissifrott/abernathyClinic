@@ -1,0 +1,31 @@
+version: '3.3'
+
+services:
+  patientdb:
+    image: 'mysql:5.7.31'
+    container_name: patientdb
+    environment:
+      MYSQL_ALLOW_EMPTY_PASSWORD: 1
+      MYSQL_DATABASE: abernathy_patient
+    ports:
+      - "3306:3306"
+    volumes:
+      - /data/mysql:/var/lib/mysql
+    restart: always
+    
+
+  abernathyPatient:
+    depends_on:
+      - patientdb
+    image: abernathy-patient
+    container_name: abernathy-patient
+    restart: always
+    ports:
+      - "8081:8081"
+    build:
+      context: ""
+    environment:
+      MYSQL_HOST: patientdb
+      MYSQL_USER: root
+      MYSQL_ALLOW_EMPTY_PASSWORD: 1
+      MYSQL_PORT: 3306

@@ -1,7 +1,6 @@
 package fr.redkissifrott.abernathyClient.proxies;
 
 import java.util.Optional;
-import java.util.UUID;
 
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -21,9 +20,9 @@ public interface PatientProxy {
 	public Patient addPatient(@RequestBody Patient patient);
 
 	@GetMapping(value = "patient/{id}")
-	public Optional<Patient> getPatient(@PathVariable("id") UUID id);
+	public Optional<Patient> getPatient(@PathVariable("id") Integer id);
 
 	@GetMapping(value = "patient/delete/{id}")
-	public void deletePatient(@PathVariable("id") UUID id);
+	public void deletePatient(@PathVariable("id") Integer id);
 
 }

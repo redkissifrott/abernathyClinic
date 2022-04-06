@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/abernathyClinic.iml" filepath="$PROJECT_DIR$/.idea/abernathyClinic.iml" />
+      <module fileurl="file://$PROJECT_DIR$/abernathyReport/abernathyReport.iml" filepath="$PROJECT_DIR$/abernathyReport/abernathyReport.iml" />
+    </modules>
+  </component>
+</project>

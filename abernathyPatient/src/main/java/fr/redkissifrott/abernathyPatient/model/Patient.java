@@ -1,18 +1,16 @@
 package fr.redkissifrott.abernathyPatient.model;
 
 import java.time.LocalDate;
-import java.util.UUID;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
-
-import org.hibernate.annotations.GenericGenerator;
 
 import lombok.Data;
 
@@ -22,15 +20,14 @@ import lombok.Data;
 public class Patient {
 
 	@Id
-	@GeneratedValue(generator = "UUID")
-	@GenericGenerator(name = "UUID", strategy = "org.hibernate.id.UUIDGenerator")
-	@Column(name = "id", updatable = false, nullable = false)
-	private UUID id;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int id;
 
-	public Patient(UUID id, @NotBlank(message = "Family is mandatory") String family,
+	public Patient(int id, @NotBlank(message = "Family is mandatory") String family,
 			@NotBlank(message = "Given is mandatory") String given,
 			@Past(message = "Birthdate can't be future") @NotNull(message = "Birthdate is mandatory") LocalDate dob,
-			@NotNull(message = "Sex is mandatory") String sex, String address, String phone) {
+			@NotNull(message = "Sex is mandatory") @NotNull(message = "Sex is mandatory") String sex, String address,
+			String phone) {
 		super();
 		this.id = id;
 		this.family = family;

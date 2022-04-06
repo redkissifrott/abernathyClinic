@@ -1,7 +1,6 @@
 package fr.redkissifrott.abernathyClient.model;
 
 import java.time.LocalDate;
-import java.util.UUID;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
@@ -14,7 +13,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 public class Patient {
-	private UUID id;
+	private int id;
 	@NotBlank(message = "Family is mandatory")
 	private String family;
 	@NotBlank(message = "Given is mandatory")

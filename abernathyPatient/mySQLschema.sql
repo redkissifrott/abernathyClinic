@@ -2,7 +2,7 @@ CREATE DATABASE IF NOT EXISTS abernathy_patient;
  USE abernathy_patient;
 
 CREATE TABLE IF NOT EXISTS patient (
-  id VARCHAR(80) PRIMARY KEY,
+  id INT AUTO_INCREMENT PRIMARY KEY,
   family VARCHAR(30) NOT NULL,
   given VARCHAR(30) NOT NULL,
   dob DATE NOT NULL,
