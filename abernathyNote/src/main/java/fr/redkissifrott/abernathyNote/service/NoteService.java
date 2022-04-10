@@ -1,5 +1,6 @@
 package fr.redkissifrott.abernathyNote.service;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,7 +23,7 @@ public class NoteService {
 		return noteRepository.findById(id);
 	}
 
-	public Iterable<Note> getNotes(Integer patId) {
+	public List<Note> getNotes(Integer patId) {
 		return noteRepository.findAllByPatId(patId);
 	}
 

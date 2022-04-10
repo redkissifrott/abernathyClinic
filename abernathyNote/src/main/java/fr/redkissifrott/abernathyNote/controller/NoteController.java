@@ -1,8 +1,14 @@
 package fr.redkissifrott.abernathyNote.controller;
 
+import java.util.List;
 import java.util.Optional;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -12,6 +18,12 @@ import org.springframework.web.bind.annotation.RestController;
 
 import fr.redkissifrott.abernathyNote.model.Note;
 import fr.redkissifrott.abernathyNote.service.NoteService;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.Parameter;
+import io.swagger.v3.oas.annotations.media.ArraySchema;
+import io.swagger.v3.oas.annotations.media.Content;
+import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
 
 @RestController
 @RequestMapping("/patHistory")
@@ -25,10 +37,13 @@ public class NoteController {
 	 * @param note
 	 * @return note
 	 */
+	@Operation(summary = "Add a note", description = "Add note send in body to DataBase")
+	@ApiResponse(responseCode = "201", description = "Note created", content = @Content(mediaType = "application/json"))
+	@ApiResponse(responseCode = "422", description = "MethodArgumentNotValidException", content = @Content(mediaType = "application/json"))
+
 	@PostMapping("/add")
-	public Note addNote(@RequestBody Note note) {
-		noteService.saveNote(note);
-		return note;
+	public ResponseEntity<Note> addNote(@Valid @RequestBody Note note) throws MethodArgumentNotValidException {
+		return new ResponseEntity<Note>(noteService.saveNote(note), HttpStatus.CREATED);
 	}
 
 	/**
@@ -48,9 +63,11 @@ public class NoteController {
 	 * @param patId
 	 * @return list of notes
 	 */
+	@Operation(summary = "Get list of all patient's note by its id")
+	@ApiResponse(responseCode = "200", description = "Successful operation", content = @Content(mediaType = "application/json", array = @ArraySchema(schema = @Schema(implementation = Note.class))))
 	@GetMapping("/notes/{patId}")
-	public Iterable<Note> getNotes(@PathVariable("patId") Integer patId) {
-		return noteService.getNotes(patId);
+	public ResponseEntity<List<Note>> getNotes(@Parameter(name = "patient's id") @PathVariable("patId") Integer patId) {
+		return new ResponseEntity<>(noteService.getNotes(patId), HttpStatus.OK);
 	}
 
 }
