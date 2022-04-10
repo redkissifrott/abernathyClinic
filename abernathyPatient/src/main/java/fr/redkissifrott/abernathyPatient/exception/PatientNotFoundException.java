@@ -1,10 +1,10 @@
 package fr.redkissifrott.abernathyPatient.exception;
 
-public class PatientAlreadyExists extends RuntimeException {
+public class PatientNotFoundException extends RuntimeException {
 
 	private static final long serialVersionUID = 1L;
 
-	public PatientAlreadyExists(String msg) {
+	public PatientNotFoundException(String msg) {
 		super(msg);
 	}
 

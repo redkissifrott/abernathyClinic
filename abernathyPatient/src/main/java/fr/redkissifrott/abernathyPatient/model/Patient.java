@@ -12,31 +12,22 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
 
+import io.swagger.v3.oas.annotations.media.Schema;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
 @Table(name = "patient")
 public class Patient {
 
+	@Schema(name = "id")
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-
-	public Patient(int id, @NotBlank(message = "Family is mandatory") String family,
-			@NotBlank(message = "Given is mandatory") String given,
-			@Past(message = "Birthdate can't be future") @NotNull(message = "Birthdate is mandatory") LocalDate dob,
-			@NotNull(message = "Sex is mandatory") @NotNull(message = "Sex is mandatory") String sex, String address,
-			String phone) {
-		super();
-		this.id = id;
-		this.family = family;
-		this.given = given;
-		this.dob = dob;
-		this.sex = sex;
-		this.address = address;
-		this.phone = phone;
-	}
 
 	@NotBlank(message = "Family is mandatory")
 	@Column(name = "family")
@@ -55,14 +46,11 @@ public class Patient {
 	@Column(name = "sex")
 	private String sex;
 
+	@Schema(name = "address", description = "Optional")
 	@Column(name = "address")
 	private String address;
 
 	@Column(name = "phone")
 	private String phone;
-
-	public Patient() {
-		super();
-	}
 
 }

@@ -1,5 +1,6 @@
 package fr.redkissifrott.abernathyPatient.service;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,7 +20,7 @@ public class PatientService {
 		return patientRepository.save(patient);
 	}
 
-	public Iterable<Patient> getPatients() {
+	public List<Patient> getPatients() {
 		return patientRepository.findAll();
 	}
 
@@ -29,6 +30,10 @@ public class PatientService {
 
 	public Optional<Patient> getPatientByFamilyAndGiven(String family, String given) {
 		return patientRepository.findByFamilyAndGiven(family, given);
+	}
+
+	public List<Patient> getPatientByFamily(String family) {
+		return patientRepository.findByFamily(family);
 	}
 
 	@Transactional
