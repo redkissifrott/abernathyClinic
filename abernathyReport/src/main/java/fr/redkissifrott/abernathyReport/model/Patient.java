@@ -10,6 +10,14 @@ import lombok.NoArgsConstructor;
 public class Patient {
 	private int id;
 	private String family;
+
+	public Patient(int id, LocalDate dob, String sex) {
+		super();
+		this.id = id;
+		this.dob = dob;
+		this.sex = sex;
+	}
+
 	private String given;
 	private LocalDate dob;
 	private String sex;
