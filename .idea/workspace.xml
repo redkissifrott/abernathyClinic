@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="25e6f15c-e32b-4c08-8a0e-2843f4f3b549" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.project" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/abernathyClient/src/main/java/fr/redkissifrott/abernathyClient/controller/PatientClientController.java" beforeDir="false" afterPath="$PROJECT_DIR$/abernathyClient/src/main/java/fr/redkissifrott/abernathyClient/controller/PatientClientController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/abernathyClient/src/main/java/fr/redkissifrott/abernathyClient/model/Patient.java" beforeDir="false" afterPath="$PROJECT_DIR$/abernathyClient/src/main/java/fr/redkissifrott/abernathyClient/model/Patient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/abernathyClient/src/main/java/fr/redkissifrott/abernathyClient/proxies/PatientProxy.java" beforeDir="false" afterPath="$PROJECT_DIR$/abernathyClient/src/main/java/fr/redkissifrott/abernathyClient/proxies/PatientProxy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/abernathyClient/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/abernathyClient/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/abernathyClient/src/main/resources/templates/patient/infos.html" beforeDir="false" afterPath="$PROJECT_DIR$/abernathyClient/src/main/resources/templates/patient/infos.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/abernathyClient/src/main/resources/templates/patient/list.html" beforeDir="false" afterPath="$PROJECT_DIR$/abernathyClient/src/main/resources/templates/patient/list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/abernathyPatient/mySQLschema.sql" beforeDir="false" afterPath="$PROJECT_DIR$/abernathyPatient/mySQLschema.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/abernathyPatient/pom2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/abernathyPatient/src/main/java/fr/redkissifrott/abernathyPatient/controller/PatientController.java" beforeDir="false" afterPath="$PROJECT_DIR$/abernathyPatient/src/main/java/fr/redkissifrott/abernathyPatient/controller/PatientController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/abernathyPatient/src/main/java/fr/redkissifrott/abernathyPatient/model/Patient.java" beforeDir="false" afterPath="$PROJECT_DIR$/abernathyPatient/src/main/java/fr/redkissifrott/abernathyPatient/model/Patient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/abernathyPatient/src/main/java/fr/redkissifrott/abernathyPatient/repository/PatientRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/abernathyPatient/src/main/java/fr/redkissifrott/abernathyPatient/repository/PatientRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/abernathyPatient/src/main/java/fr/redkissifrott/abernathyPatient/service/PatientService.java" beforeDir="false" afterPath="$PROJECT_DIR$/abernathyPatient/src/main/java/fr/redkissifrott/abernathyPatient/service/PatientService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/abernathyPatient/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/abernathyPatient/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/abernathyPatient/src/test/java/fr/redkissifrott/abernathyPatient/AbernathyPatientApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/abernathyPatient/src/test/java/fr/redkissifrott/abernathyPatient/AbernathyPatientApplicationTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/abernathyPatient/src/test/java/fr/redkissifrott/abernathyPatient/controller/PatientControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/abernathyPatient/src/test/java/fr/redkissifrott/abernathyPatient/controller/PatientControllerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/abernathyPatient/target/classes/META-INF/maven/fr.redkissifrott/abernathyPatient/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/abernathyPatient/target/classes/META-INF/maven/fr.redkissifrott/abernathyPatient/pom.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/abernathyPatient/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/abernathyPatient/target/classes/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/abernathyPatient/target/classes/fr/redkissifrott/abernathyPatient/controller/PatientController.class" beforeDir="false" afterPath="$PROJECT_DIR$/abernathyPatient/target/classes/fr/redkissifrott/abernathyPatient/controller/PatientController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/abernathyPatient/target/classes/fr/redkissifrott/abernathyPatient/model/Patient.class" beforeDir="false" afterPath="$PROJECT_DIR$/abernathyPatient/target/classes/fr/redkissifrott/abernathyPatient/model/Patient.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/abernathyPatient/target/classes/fr/redkissifrott/abernathyPatient/repository/PatientRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/abernathyPatient/target/classes/fr/redkissifrott/abernathyPatient/repository/PatientRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/abernathyPatient/target/classes/fr/redkissifrott/abernathyPatient/service/PatientService.class" beforeDir="false" afterPath="$PROJECT_DIR$/abernathyPatient/target/classes/fr/redkissifrott/abernathyPatient/service/PatientService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/abernathyPatient/target/test-classes/fr/redkissifrott/abernathyPatient/AbernathyPatientApplicationTests.class" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="27OBpknswreGYmwXy35bRnpmnAe" />
+  <component name="ProjectViewState">
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+  </component>
+  <component name="RunManager">
+    <configuration name="AbernathyReportApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="abernathyReport" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="fr.redkissifrott.abernathyReport.AbernathyReportApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="25e6f15c-e32b-4c08-8a0e-2843f4f3b549" name="Changes" comment="" />
+      <created>1649181437395</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1649181437395</updated>
+      <workItem from="1649181439193" duration="384000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>

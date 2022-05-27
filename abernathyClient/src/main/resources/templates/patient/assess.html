@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Patient Report</title>
+</head>
+<body>
+
+<h1>Patient Report</h1>
+
+<table>
+    <thead>
+    </thead>
+    <tr>
+        <td>Family</td>
+        <td th:text="${report.family}"></td>
+    </tr>
+    <tr>
+        <td>Given</td>
+        <td th:text="${report.given}"></td>
+    </tr>
+    <tr>
+        <td>Age</td>
+        <td th:text="${report.age}"></td>
+    </tr>
+    <tr>
+        <td>Sex</td>
+        <td th:text="${report.sex}"></td>
+    </tr>
+    <tr>
+        <td>Diabetes assessment</td>
+        <td th:text="${report.assessment}"></td>
+    </tr>
+</table>
+<p>
+    <a style="font-weight: bold;" th:href="@{/patient/list}"> Back to patients list</a>
+</p>
+
+</body>
+</html>
