@@ -21,7 +21,7 @@ public class ReportController {
 
 	@GetMapping("/{patId}")
 	public Report getReport(@PathVariable("patId") Integer patId) {
-		Patient patient = patientProxy.getPatient(patId).get();
+		Patient patient = patientProxy.getPatient(patId);
 		Report report = new Report(patId, patient.getFamily(), patient.getGiven(), patient.getSex(),
 				reportService.ageFromBirthdate(patient.getDob()), reportService.getAssessment(patId));
 		return report;

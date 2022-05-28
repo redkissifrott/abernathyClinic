@@ -28,8 +28,8 @@ public class ReportService {
 
 	public Assessment getAssessment(Integer patId) {
 		int terms = termsCount(patId);
-		String sex = patientProxy.getPatient(patId).get().getSex();
-		int age = ageFromBirthdate(patientProxy.getPatient(patId).get().getDob());
+		String sex = patientProxy.getPatient(patId).getSex();
+		int age = ageFromBirthdate(patientProxy.getPatient(patId).getDob());
 
 		Assessment assessment = Assessment.NONE;
 
@@ -75,13 +75,10 @@ public class ReportService {
 		EnumSet<Term> terms = EnumSet.allOf(Term.class);
 		int termCount = 0;
 		/**
-		for (Note note : notes) {
-			for (Term term : terms) {
-				if (note.getRecommendations().toUpperCase().contains(term.toString())) {
-					termCount++;
-				}
-			}
-		}*/
+		 * for (Note note : notes) { for (Term term : terms) { if
+		 * (note.getRecommendations().toUpperCase().contains(term.toString())) {
+		 * termCount++; } } }
+		 */
 		for (Note note : notes) {
 			for (Term term : terms) {
 				if (note.getRecommendations().toUpperCase().contains(term.toString())) {
@@ -89,6 +86,7 @@ public class ReportService {
 				}
 			}
 		}
+		logger.debug("count" + termCount);
 		return termCount;
 
 	}
