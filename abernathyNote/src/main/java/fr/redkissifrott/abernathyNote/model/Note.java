@@ -8,11 +8,15 @@ import javax.validation.constraints.NotNull;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Document(collection = "Note")
 @JavaBean
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class Note {
 
 	@Id
@@ -25,12 +29,6 @@ public class Note {
 
 	@NotBlank(message = "Recommendations can't be blank")
 	private String recommendations;
-
-	@Override
-	public String toString() {
-		return "patId=" + patId + "¬e=Patient: " + patName + " Practitioner's notes/recommendations: "
-				+ recommendations;
-	}
 
 	public Note(@NotNull(message = "Patient's id can't be null") Integer patId, String patName,
 			@NotBlank(message = "Recommendations can't be blank") String recommendations) {

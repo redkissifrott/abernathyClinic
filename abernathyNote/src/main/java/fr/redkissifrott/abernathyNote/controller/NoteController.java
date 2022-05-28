@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import fr.redkissifrott.abernathyNote.exception.CustomErrorMessage;
 import fr.redkissifrott.abernathyNote.model.Note;
 import fr.redkissifrott.abernathyNote.service.NoteService;
 import io.swagger.v3.oas.annotations.Operation;
@@ -24,7 +25,9 @@ import io.swagger.v3.oas.annotations.media.ArraySchema;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.tags.Tag;
 
+@Tag(name = "NoteController", description = "Patient CRUD")
 @RestController
 @RequestMapping("/patHistory")
 public class NoteController {
@@ -52,6 +55,9 @@ public class NoteController {
 	 * @param id
 	 * @return note
 	 */
+	@Operation(summary = "Get a note by its id")
+	@ApiResponse(responseCode = "200", description = "Successful operation", content = @Content(mediaType = "application/json", schema = @Schema(implementation = Note.class)))
+	@ApiResponse(responseCode = "404", description = "NoteNotFoundException", content = @Content(mediaType = "application/json", schema = @Schema(implementation = CustomErrorMessage.class)))
 	@GetMapping("/{id}")
 	public Optional<Note> getNote(@PathVariable("id") String id) {
 		return noteService.getNote(id);
