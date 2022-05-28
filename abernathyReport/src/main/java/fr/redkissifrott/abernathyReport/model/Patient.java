@@ -2,11 +2,13 @@ package fr.redkissifrott.abernathyReport.model;
 
 import java.time.LocalDate;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
 @NoArgsConstructor
+@AllArgsConstructor
 public class Patient {
 	private int id;
 	private String family;

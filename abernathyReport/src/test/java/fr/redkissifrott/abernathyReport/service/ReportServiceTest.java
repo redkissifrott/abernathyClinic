@@ -1,13 +1,13 @@
 package fr.redkissifrott.abernathyReport.service;
 
-import static org.junit.Assert.assertEquals;
+//import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.util.ArrayList;
 
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mockito;
-import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
@@ -20,13 +20,11 @@ import fr.redkissifrott.abernathyReport.proxies.NoteProxy;
 @SpringBootTest
 class ReportServiceTest {
 
-	private Logger logger;
-
 	@MockBean
-	NoteProxy noteProxy;
+	private NoteProxy noteProxy;
 
 	@Autowired
-	ReportService reportService;
+	private ReportService reportService;
 
 	@Test
 	void termsCountTest() {

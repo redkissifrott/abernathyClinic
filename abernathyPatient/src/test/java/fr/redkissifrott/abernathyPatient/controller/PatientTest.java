@@ -25,7 +25,6 @@ import org.springframework.test.web.servlet.MockMvc;
 import fr.redkissifrott.abernathyPatient.exception.PatientNotFoundException;
 import fr.redkissifrott.abernathyPatient.model.Patient;
 import fr.redkissifrott.abernathyPatient.repository.PatientRepository;
-import fr.redkissifrott.abernathyPatient.service.PatientService;
 
 @SpringBootTest
 @AutoConfigureMockMvc
@@ -33,9 +32,6 @@ class PatientTest {
 
 	@MockBean
 	private PatientRepository patientRepository;
-
-	@Autowired
-	private PatientService patientService;
 
 	@Autowired
 	private MockMvc mockMvc;
