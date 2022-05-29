@@ -1,0 +1,76 @@
+version: '3.3'
+
+services:
+  patientdb:
+    image: 'mysql:5.7.31'
+    container_name: patientdb
+    environment:
+      MYSQL_ALLOW_EMPTY_PASSWORD: 1
+      MYSQL_DATABASE: abernathy_patient
+    ports:
+      - "3306:3306"
+    volumes:
+      - db_data:/var/lib/mysql
+    restart: always
+    
+  mongodb:
+    image: mongo:4
+    container_name: mongodb
+#    environment:
+#      MONGO_INITDB_ROOT_USERNAME: root
+#      MONGO_INITDB_ROOT_PASSWORD: root
+    ports:
+      - 27017:27017
+    volumes:
+      - mongodb_data_container:/data/db
+      
+  abernathyPatient:
+    depends_on:
+      - patientdb
+    image: abernathy-patient
+    container_name: abernathy-patient
+    restart: always
+    ports:
+      - "8081:8081"
+    build: "./abernathyPatient"
+    environment:
+      MYSQL_HOST: patientdb
+      MYSQL_USER: root
+      MYSQL_ALLOW_EMPTY_PASSWORD: 1
+      MYSQL_PORT: 3306
+      
+  abernathyNotes:
+    build: "./abernathyNote"
+    image: abernathy-note
+    container_name: abernathy-note
+    depends_on:
+      - mongodb
+    ports:
+      - "8082:8082"
+    environment:
+      - "spring_data_mongodb_host=mongodb"
+      
+  abernathyReport:
+    build: "./abernathyReport"
+    image: abernathy-report
+    container_name: abernathy-report
+    depends_on:
+      - abernathyNotes
+      - abernathyPatient
+    ports:
+      - "8083:8083"
+      
+  abernathyClient:
+    build: "./abernathyClient"
+    image: abernathy-client
+    container_name: abernathy-client
+    depends_on:
+      - abernathyNotes
+      - abernathyPatient
+      - abernathyReport
+    ports:
+      - "8080:8080"
+      
+volumes:
+  db_data:
+  mongodb_data_container:
