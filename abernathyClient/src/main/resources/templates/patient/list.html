@@ -1,38 +1,60 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <title>List</title>
-</head>
-<body>
-<h1>Patients List</h1>
+<html xmlns="http://www.w3.org/1999/xhml" xmlns:th="http://www.thymeleaf.org">
+    
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+   		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+        <title>Patient List</title>
+        <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="https://formden.com/static/cdn/font-awesome/4.4.0/css/font-awesome.min.css" />
+        <link rel="stylesheet" href="https://formden.com/static/cdn/bootstrap-iso.css" />
+        <style>.bootstrap-iso .formden_header h2, .bootstrap-iso .formden_header p, .bootstrap-iso form{font-family: Arial, Helvetica, sans-serif; color: black}.bootstrap-iso form button, .bootstrap-iso form button:hover{color: white !important;} .asteriskField{color: red;}</style>
+        <link th:href="@{/styles.css}" rel="stylesheet" />
+        <link th:href="@{/login.css}" rel="stylesheet" />
+    	<script type="text/javascript" src="/webjars/jquery/jquery.min.js"></script>
+    	<script type="text/javascript" src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+    </head>
+    <body>
+    	<div class="container-fluid pages">
+    	<div class="bootstrap-iso">
+
+	<div class="d-flex justify-content-between align-items-baseline" style="margin: 0 -45px 0 -15px">
+    	<h1 class="align-self-baseline">Patients List</h1>
+    </div>
 
 <p th:if="${#lists.isEmpty(patientsList)}">
     No patient yet in database
 </p>
 
+<div class="container-fluid" style="width: 630px; padding: 15px 0; margin: 0 -15px;">
 <div th:unless="${#lists.isEmpty(patientsList)}">
-     <table>
+     <table class="table table-striped">
         <thead>
-        <th>Family</th>
-        <th>Given</th>
+        <tr class="text-center">
+			<th class="text-center">Name</th>
+			<th class="text-center">First name</th>
+		</tr>
         </thead>
-        <tr th:each="patient : ${patientsList}">
-            <td th:text="${patient.family}"></td>
-            <td th:text="${patient.given}"></td>
-            <td>
-                <a th:href="@{/patient/infos(id=${patient.id})}">Patient Infos</a>
-                <a th:href="@{/patient/update(id=${patient.id})}">Update</a>
-                <a th:href="@{/patient/assess(id=${patient.id})}">Report</a>
-            </td> 
-        </tr>
+        
+		<tbody>
+        	<tr th:each="patient : ${patientsList}">
+            	<td th:text="${patient.family}"></td>
+            	<td th:text="${patient.given}"></td>
+            	<td>
+                	<a th:href="@{/patient/infos(id=${patient.id})}">Patient Infos</a>
+                	<a th:href="@{/patient/update(id=${patient.id})}">Update</a>
+                	<a th:href="@{/patient/assess(id=${patient.id})}">Report</a>
+            	</td> 
+        	</tr>
+        </tbody> 
     </table>
 </div>
 
 <p>
-    <a style="font-weight: bold;" th:href="@{/patient/add}" }> Add Patient</a>
+   <a class="btn btn-primary font-weight-bold homebtn" href="./add">Add patient</a>
 </p>
-
+</div>
+</div>
+</div>
 </body>
 </html>

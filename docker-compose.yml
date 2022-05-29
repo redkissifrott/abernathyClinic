@@ -16,9 +16,6 @@ services:
   mongodb:
     image: mongo:4
     container_name: mongodb
-#    environment:
-#      MONGO_INITDB_ROOT_USERNAME: root
-#      MONGO_INITDB_ROOT_PASSWORD: root
     ports:
       - 27017:27017
     volumes:
@@ -39,7 +36,7 @@ services:
       MYSQL_ALLOW_EMPTY_PASSWORD: 1
       MYSQL_PORT: 3306
       
-  abernathyNotes:
+  abernathyNote:
     build: "./abernathyNote"
     image: abernathy-note
     container_name: abernathy-note
@@ -55,7 +52,7 @@ services:
     image: abernathy-report
     container_name: abernathy-report
     depends_on:
-      - abernathyNotes
+      - abernathyNote
       - abernathyPatient
     ports:
       - "8083:8083"
@@ -65,7 +62,7 @@ services:
     image: abernathy-client
     container_name: abernathy-client
     depends_on:
-      - abernathyNotes
+      - abernathyNote
       - abernathyPatient
       - abernathyReport
     ports:
@@ -74,3 +71,4 @@ services:
 volumes:
   db_data:
   mongodb_data_container:
+  

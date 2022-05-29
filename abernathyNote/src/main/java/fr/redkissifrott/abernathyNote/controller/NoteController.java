@@ -27,7 +27,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.tags.Tag;
 
-@Tag(name = "NoteController", description = "Patient CRUD")
+@Tag(name = "NoteController", description = "Patient Notes CRUD")
 @RestController
 @RequestMapping("/patHistory")
 public class NoteController {
