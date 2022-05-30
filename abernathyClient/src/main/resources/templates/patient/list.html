@@ -41,9 +41,7 @@
             	<td th:text="${patient.family}"></td>
             	<td th:text="${patient.given}"></td>
             	<td>
-                	<a th:href="@{/patient/infos(id=${patient.id})}">Patient Infos</a>
-                	<a th:href="@{/patient/update(id=${patient.id})}">Update</a>
-                	<a th:href="@{/patient/assess(id=${patient.id})}">Report</a>
+                	<a class="btn btn-primary font-weight-bold homebtn" th:href="@{/patient/infos(id=${patient.id})}">Patient Infos</a>
             	</td> 
         	</tr>
         </tbody> 

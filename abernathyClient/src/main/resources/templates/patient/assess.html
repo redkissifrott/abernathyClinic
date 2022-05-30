@@ -1,41 +1,47 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <title>Patient Report</title>
-</head>
-<body>
+<html xmlns="http://www.w3.org/1999/xhml" xmlns:th="http://www.thymeleaf.org">
+    
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+   		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+        <title>Patient List</title>
+        <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="https://formden.com/static/cdn/font-awesome/4.4.0/css/font-awesome.min.css" />
+        <link rel="stylesheet" href="https://formden.com/static/cdn/bootstrap-iso.css" />
+        <style>.bootstrap-iso .formden_header h2, .bootstrap-iso .formden_header p, .bootstrap-iso form{font-family: Arial, Helvetica, sans-serif; color: black}.bootstrap-iso form button, .bootstrap-iso form button:hover{color: white !important;} .asteriskField{color: red;}</style>
+        <link th:href="@{/styles.css}" rel="stylesheet" />
+        <link th:href="@{/login.css}" rel="stylesheet" />
+    	<script type="text/javascript" src="/webjars/jquery/jquery.min.js"></script>
+    	<script type="text/javascript" src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+    </head>
+    <body>
+    	<div class="container-fluid pages">
+    	<div class="bootstrap-iso">
 
 <h1>Patient Report</h1>
 
-<table>
-    <thead>
-    </thead>
-    <tr>
-        <td>Family</td>
-        <td th:text="${report.family}"></td>
-    </tr>
-    <tr>
-        <td>Given</td>
-        <td th:text="${report.given}"></td>
-    </tr>
-    <tr>
-        <td>Age</td>
-        <td th:text="${report.age}"></td>
-    </tr>
-    <tr>
-        <td>Sex</td>
-        <td th:text="${report.sex}"></td>
-    </tr>
-    <tr>
-        <td>Diabetes assessment</td>
-        <td th:text="${report.assessment}"></td>
-    </tr>
-</table>
 <p>
-    <a style="font-weight: bold;" th:href="@{/patient/list}"> Back to patients list</a>
+    <a style="font-weight: bold; text-align: right" th:href="@{/patient/infos(id=${report.patId})}"> Back to patient infos</a>
+</p>
+<p>
+    <a style="font-weight: bold; text-align: right" th:href="@{/patient/list}"> Back to patients list</a>
 </p>
 
+<div class="container-fluid" style="width: 900px">
+		
+		<div th:if="${errorMessage!=null}" style="color:red;font-style:italic" th:utext="${errorMessage}">..</div>
+		
+		<div style="background-color: #f5f5f5; padding: 1rem 1rem;  width: 800px">
+        <p><strong>Name :</strong> <span th:text="${report.family}"></span></p>
+        <p><strong>Last Name :</strong> <span th:text="${report.given}"></span></p>
+        <p><strong>Age :</strong> <span th:text="${report.age}"></span></p>
+        <p><strong>Gender :</strong> <span th:text="${report.sex}"></span></p>
+        <p class="lead"><strong>Diabetes assessment :</strong> <span th:text="${report.assessment}"></span></p>
+        </div>
+</div>
+
+
+</div>
+</div>
 </body>
 </html>

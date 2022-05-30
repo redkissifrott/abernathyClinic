@@ -24,11 +24,11 @@
     <a style="font-weight: bold; text-align: right" th:href="@{/patient/list}"> Back to patients list</a>
 </p>
 
-<div class="container-fluid" style="width: 600px">
+<div class="container-fluid" style="width: 900px">
 		
 		<div th:if="${errorMessage!=null}" style="color:red;font-style:italic" th:utext="${errorMessage}">..</div>
 		
-		<div style="background-color: #f5f5f5; padding: 1rem 1rem; margin-left: -15px; width: 630px">
+		<div style="background-color: #f5f5f5; padding: 1rem 1rem;  width: 800px">
         <p><strong>Name :</strong> <span th:text="${patientInfos.family}"></span></p>
         <p><strong>Last Name :</strong> <span th:text="${patientInfos.given}"></span></p>
         <p><strong>Date of Birth :</strong> <span th:text="${patientInfos.dob}"></span></p>
@@ -36,7 +36,9 @@
         <p><strong>Address :</strong> <span th:text="${patientInfos.address}"></span></p>
         <p><strong>Phone :</strong> <span th:text="${patientInfos.phone}"></span></p>
         </div>
-        <a th:href="@{/patient/update(id=${patientInfos.id})}" type="button" class="btn btn btn-warning" style="float: right; margin-top: -43px; margin-right: -33px">Update patient</a>
+        <a th:href="@{/patient/assess(id=${patientInfos.id})}" type="button" class="btn btn-primary">Diabetes risk</a>
+        <a th:href="@{/patient/update(id=${patientInfos.id})}" type="button" class="btn btn btn-warning">Update patient</a>
+        <a th:href="@{/patient/delete(id=${patientInfos.id})}" type="button" class="btn btn-danger">Delete patient</a>
 
 
 <p th:if="${#lists.isEmpty(patientNotes)}">
@@ -51,19 +53,20 @@
 <!--      </table> -->
 <!-- </div>  -->
  <p class="h4" style="margin-left: -15px">Notes :</p>
-        <form method="post" th:action="@{/addBank}" th:object="${bank}">
-        	<div class="container-fluid" style="width: 600px">
-			<div style="background-color: #f5f5f5; padding: 3rem 1rem; margin: 0 -30px" class="row">
-<div th:each="note : ${patientNotes}">
+        	<div class="container-fluid" style="width: 800px">
+			<div style="background-color: #f5f5f5; padding: 3rem 1rem; margin: 3px 19px 0 -47px" class="row">
+<div th:each="note : ${patientNotes}" style="width: 100%">
 <pre th:text="${note.recommendations}"></pre>
+<div style="margin: -11px 0 9px 0; text-align:right"><a th:href="@{/patient/updateNote(id=${note.id})}" >Update Note</a></div>
+<div style="margin: -11px 0 9px 0; text-align:right"><a href="/patient/update-note" >Update Note</a></div>
 </div>
 
 <textarea rows="8" cols="120" name="recommendation" form="noteform">
 </textarea>   
+
 <form method="POST" type="text" th:action="@{/patient/addNote(id=${patientInfos.id})}" id="noteform">
  <button type="submit" class="btn btn-success" name="action" value="submitnote">Submit</button>
 </form>
-    
 
 </div>
 </div>

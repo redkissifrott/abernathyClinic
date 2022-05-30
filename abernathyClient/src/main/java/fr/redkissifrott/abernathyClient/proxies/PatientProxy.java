@@ -3,6 +3,7 @@ package fr.redkissifrott.abernathyClient.proxies;
 import java.util.Optional;
 
 import org.springframework.cloud.openfeign.FeignClient;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -22,7 +23,7 @@ public interface PatientProxy {
 	@GetMapping(value = "patient/{id}")
 	public Optional<Patient> getPatient(@PathVariable("id") Integer id);
 
-	@GetMapping(value = "patient/delete/{id}")
+	@DeleteMapping(value = "patient/delete/{id}")
 	public void deletePatient(@PathVariable("id") Integer id);
 
 }
