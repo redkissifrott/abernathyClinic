@@ -26,6 +26,11 @@ public class ReportService {
 	@Autowired
 	NoteProxy noteProxy;
 
+	/**
+	 * 
+	 * @param patId
+	 * @return assessment - the risk of diabete
+	 */
 	public Assessment getAssessment(Integer patId) {
 		int terms = termsCount(patId);
 		String sex = patientProxy.getPatient(patId).get().getSex();
@@ -74,14 +79,6 @@ public class ReportService {
 		ArrayList<Note> notes = noteProxy.getNotes(patId);
 		EnumSet<Term> terms = EnumSet.allOf(Term.class);
 		int termCount = 0;
-		/**
-		for (Note note : notes) {
-			for (Term term : terms) {
-				if (note.getRecommendations().toUpperCase().contains(term.toString())) {
-					termCount++;
-				}
-			}
-		}*/
 		for (Note note : notes) {
 			for (Term term : terms) {
 				if (note.getRecommendations().toUpperCase().contains(term.toString())) {
@@ -93,6 +90,11 @@ public class ReportService {
 
 	}
 
+	/**
+	 * 
+	 * @param birthdate
+	 * @return age
+	 */
 	public Integer ageFromBirthdate(LocalDate birthdate) {
 		Integer age = Period.between(birthdate, LocalDate.now()).getYears();
 		return age;
