@@ -2,11 +2,13 @@ package fr.redkissifrott.abernathyClient.model;
 
 import javax.validation.constraints.NotBlank;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
 @NoArgsConstructor
+@AllArgsConstructor
 public class Note {
 
 	public Note(Integer patId, String patName,
