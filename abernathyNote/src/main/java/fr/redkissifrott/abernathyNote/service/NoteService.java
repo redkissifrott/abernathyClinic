@@ -27,4 +27,9 @@ public class NoteService {
 		return noteRepository.findAllByPatId(patId);
 	}
 
+	public void deleteNote(String id) {
+		noteRepository.deleteById(id);
+
+	}
+
 }

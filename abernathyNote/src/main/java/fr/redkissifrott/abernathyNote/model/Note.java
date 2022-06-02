@@ -13,10 +13,10 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Document(collection = "Note")
-@JavaBean
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@JavaBean
 public class Note {
 
 	@Id

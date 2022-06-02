@@ -77,4 +77,29 @@ public class PatientClientController {
 		return "patient/infos";
 	}
 
+	@GetMapping("/update-note")
+	public String updateNote(@RequestParam("noteId") String noteId, @ModelAttribute Note note, Model model) {
+//		logger.debug(noteId);
+		model.addAttribute("note", noteProxy.getNote(noteId).get());
+		return "patient/update-note";
+	}
+
+	@PostMapping("/updateNoteAction")
+	public String updateNoteAction(@ModelAttribute Note note, Model model) {
+		Note noteSaved = noteProxy.addNote(note);
+		model.addAttribute("patientInfos", patientProxy.getPatient(noteSaved.getPatId()).get());
+		model.addAttribute("patientNotes", noteProxy.getNotes(noteSaved.getPatId()));
+		return "patient/infos";
+	}
+
+	@GetMapping("/deleteNote")
+	public String deleteNote(@RequestParam("noteId") String noteId, Model model) {
+		Note noteDeleted = noteProxy.getNote(noteId).get();
+		Integer patId = noteDeleted.getPatId();
+		noteProxy.deleteNote(noteId);
+		model.addAttribute("patientInfos", patientProxy.getPatient(patId).get());
+		model.addAttribute("patientNotes", noteProxy.getNotes(patId));
+		return "patient/infos";
+	}
+
 }

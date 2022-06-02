@@ -49,6 +49,8 @@
 			<div style="background-color: #f5f5f5; padding: 3rem 1rem; margin: 3px 19px 0 -47px" class="row">
 <div th:each="note : ${patientNotes}" style="width: 100%">
 <pre th:text="${note.recommendations}"></pre>
+<div style="margin: -11px 0 9px 0; text-align:right"><a th:href="@{/patient/update-note(noteId=${note.id})}" >Update Note</a></div>
+<div style="margin: -11px 0 9px 0; text-align:right; color:red"><a th:href="@{/patient/deleteNote(noteId=${note.id})}" >Delete Note</a></div>
 </div>
 
 <textarea rows="8" cols="120" name="recommendation" form="noteform">

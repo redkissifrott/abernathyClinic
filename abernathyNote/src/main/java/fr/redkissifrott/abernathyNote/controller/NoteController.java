@@ -9,9 +9,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.MethodArgumentNotValidException;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -74,6 +76,27 @@ public class NoteController {
 	@GetMapping("/notes/{patId}")
 	public ResponseEntity<List<Note>> getNotes(@Parameter(name = "patient's id") @PathVariable("patId") Integer patId) {
 		return new ResponseEntity<>(noteService.getNotes(patId), HttpStatus.OK);
+	}
+
+	/**
+	 * Update - update note
+	 * 
+	 * @param note
+	 * @return note
+	 */
+	@Operation(summary = "Update a note")
+	@ApiResponse(responseCode = "201", description = "Note updated", content = @Content(mediaType = "application/json"))
+	@ApiResponse(responseCode = "422", description = "MethodArgumentNotValidException", content = @Content(mediaType = "application/json"))
+	@PutMapping()
+	public ResponseEntity<Note> updateNote(@Valid @RequestBody Note note) {
+		return new ResponseEntity<>(noteService.saveNote(note), HttpStatus.CREATED);
+	}
+
+	@DeleteMapping(value = "/delete/{id}")
+	public ResponseEntity<Object> deleteNote(@PathVariable("id") String id) {
+		noteService.getNote(id);
+		noteService.deleteNote(id);
+		return new ResponseEntity<>(HttpStatus.NO_CONTENT);
 	}
 
 }
