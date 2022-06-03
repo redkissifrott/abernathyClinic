@@ -26,4 +26,7 @@ public interface PatientProxy {
 	@DeleteMapping(value = "patient/delete/{id}")
 	public void deletePatient(@PathVariable("id") Integer id);
 
+	@PostMapping(value = "patient/update")
+	public Patient updatePatient(@RequestBody Patient patient);
+
 }

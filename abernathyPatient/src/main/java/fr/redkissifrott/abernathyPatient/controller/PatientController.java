@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -111,14 +110,13 @@ public class PatientController {
 	 */
 	@Operation(summary = "Update a patient's info", description = "Update patient's info whith content send in body")
 	@ApiResponse(responseCode = "201", description = "Patient updated", content = @Content(mediaType = "application/json"))
-	@ApiResponse(responseCode = "409", description = "Patient already exist with this family and given", content = @Content(mediaType = "application/json"))
 	@ApiResponse(responseCode = "422", description = "MethodArgumentNotValidException", content = @Content(mediaType = "application/json"))
-	@PutMapping()
+	@PostMapping(value = "/update")
 	public ResponseEntity<Patient> updatePatient(@Valid @RequestBody Patient patient) {
-		if (patientService.getPatientByFamilyAndGiven(patient.getFamily(), patient.getGiven()).isPresent()) {
-			throw new PatientAlreadyExists("A patient already exist with this family and given : " + patient.getFamily()
-					+ " " + patient.getGiven());
-		}
+//		if (patientService.getPatientByFamilyAndGiven(patient.getFamily(), patient.getGiven()).isPresent()) {
+//			throw new PatientAlreadyExists("A patient already exist with this family and given : " + patient.getFamily()
+//					+ " " + patient.getGiven());
+//		}
 		return new ResponseEntity<>(patientService.savePatient(patient), HttpStatus.CREATED);
 	}
 

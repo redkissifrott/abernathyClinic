@@ -5,7 +5,6 @@ import java.time.Period;
 import java.util.ArrayList;
 import java.util.EnumSet;
 
-import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,8 +16,6 @@ import fr.redkissifrott.abernathyReport.proxies.PatientProxy;
 
 @Service
 public class ReportService {
-
-	private Logger logger;
 
 	@Autowired
 	PatientProxy patientProxy;

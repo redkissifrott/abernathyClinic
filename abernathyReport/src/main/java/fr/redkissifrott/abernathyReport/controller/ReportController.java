@@ -19,6 +19,11 @@ public class ReportController {
 	@Autowired
 	ReportService reportService;
 
+	/**
+	 * 
+	 * @param patId
+	 * @return report (patient's id, family, given, sex, age, assessment)
+	 */
 	@GetMapping("/{patId}")
 	public Report getReport(@PathVariable("patId") Integer patId) {
 		Patient patient = patientProxy.getPatient(patId).get();

@@ -1,6 +1,5 @@
 package fr.redkissifrott.abernathyClient.controller;
 
-import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,7 +17,6 @@ import fr.redkissifrott.abernathyClient.proxies.PatientProxy;
 @Controller
 @RequestMapping("/patient")
 public class PatientClientController {
-	private Logger logger;
 
 	@Autowired
 	PatientProxy patientProxy;
@@ -64,6 +62,14 @@ public class PatientClientController {
 	public String updatePatient(@RequestParam("id") Integer id, @ModelAttribute Patient patient, Model model) {
 		model.addAttribute("patientInfos", patientProxy.getPatient(id).get());
 		return "patient/update";
+	}
+
+	@PostMapping("/updateAction")
+	public String updatePatientAction(@ModelAttribute Patient patient, Model model) {
+		Patient patientSaved = patientProxy.updatePatient(patient);
+		model.addAttribute("patientInfos", patientProxy.getPatient(patientSaved.getId()).get());
+		model.addAttribute("patientNotes", noteProxy.getNotes(patientSaved.getId()));
+		return "patient/infos";
 	}
 
 	@PostMapping("/addNote")
